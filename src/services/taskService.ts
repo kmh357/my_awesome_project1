@@ -3,7 +3,7 @@
  * 로컬 스토리지를 사용하여 할 일(Task) 데이터를 관리합니다.
  */
 
-import { Task, CreateTaskInput, UpdateTaskInput } from '../types/task';
+import type { Task, CreateTaskInput, UpdateTaskInput } from '../types/task';
 import {
   STORAGE_KEYS,
   getFromStorage,

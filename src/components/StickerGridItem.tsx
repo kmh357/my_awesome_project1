@@ -3,7 +3,7 @@
  * 개별 스티커를 그리드에 표시합니다 (획득/미획득 상태).
  */
 
-import { Sticker, StickerRarity } from '../types/sticker';
+import type { Sticker, StickerRarity } from '../types/sticker';
 
 interface StickerGridItemProps {
   sticker: Sticker;
@@ -18,14 +18,6 @@ const RARITY_BORDER: Record<StickerRarity, string> = {
   rare: 'border-blue-400',
   epic: 'border-purple-400',
   legendary: 'border-yellow-400',
-};
-
-// 희귀도별 이모지
-const RARITY_EMOJI: Record<StickerRarity, string> = {
-  common: '✨',
-  rare: '💎',
-  epic: '🌟',
-  legendary: '👑',
 };
 
 export default function StickerGridItem({

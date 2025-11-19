@@ -18,7 +18,7 @@ import {
   getTaskCountByDate,
   deleteAllUserTasks,
 } from '../taskService';
-import { Task } from '../../types/task';
+import type { Task } from '../../types/task';
 import * as localStorage from '../../utils/localStorage';
 
 // Mock localStorage utilities

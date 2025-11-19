@@ -3,8 +3,8 @@
  * 획득한 스티커들을 모아서 확인할 수 있습니다.
  */
 
-import { useState, useEffect } from 'react';
-import { Sticker } from '../types/sticker';
+import { useState, useEffect, useCallback } from 'react';
+import type { Sticker, StickerCollection } from '../types/sticker';
 import {
   getAllStickers,
   getUserStickers,
@@ -22,18 +22,20 @@ export default function StickerCollectionPage() {
   const [acquiredCounts, setAcquiredCounts] = useState<Map<string, number>>(
     new Map()
   );
-  const [stats, setStats] = useState({
+  const [stats, setStats] = useState<StickerCollection>({
     totalStickers: 0,
     acquiredStickers: 0,
     percentage: 0,
-    stickersByCategory: {} as any,
+    stickersByCategory: {
+      animal: { total: 0, acquired: 0 },
+      food: { total: 0, acquired: 0 },
+      nature: { total: 0, acquired: 0 },
+      trophy: { total: 0, acquired: 0 },
+      emoji: { total: 0, acquired: 0 },
+    },
   });
 
-  useEffect(() => {
-    loadStickers();
-  }, []);
-
-  const loadStickers = () => {
+  const loadStickers = useCallback(() => {
     const user = getCurrentUser();
     if (!user) {
       console.error('사용자 정보를 찾을 수 없습니다.');
@@ -60,7 +62,12 @@ export default function StickerCollectionPage() {
     // 통계 가져오기
     const collectionStats = getStickerCollectionStats(user.userId);
     setStats(collectionStats);
-  };
+  }, []);
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    loadStickers();
+  }, [loadStickers]);
 
   const handleStickerClick = (sticker: Sticker) => {
     const count = acquiredCounts.get(sticker.stickerId) || 0;

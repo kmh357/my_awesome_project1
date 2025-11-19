@@ -3,7 +3,7 @@
  * 로컬 스토리지를 사용하여 스티커 데이터를 관리합니다.
  */
 
-import {
+import type {
   Sticker,
   UserSticker,
   StickerCollection,
@@ -197,7 +197,13 @@ export function getStickerCollectionStats(userId: string): StickerCollection {
 
   // 카테고리별 통계 초기화
   const categories: StickerCategory[] = ['animal', 'food', 'nature', 'trophy', 'emoji'];
-  const stickersByCategory: StickerCollection['stickersByCategory'] = {} as any;
+  const stickersByCategory: Record<StickerCategory, { total: number; acquired: number }> = {
+    animal: { total: 0, acquired: 0 },
+    food: { total: 0, acquired: 0 },
+    nature: { total: 0, acquired: 0 },
+    trophy: { total: 0, acquired: 0 },
+    emoji: { total: 0, acquired: 0 },
+  };
 
   categories.forEach((category) => {
     const categoryStickers = getStickersByCategory(category);

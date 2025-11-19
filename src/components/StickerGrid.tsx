@@ -3,7 +3,7 @@
  * 스티커들을 그리드 레이아웃으로 표시합니다.
  */
 
-import { Sticker } from '../types/sticker';
+import type { Sticker } from '../types/sticker';
 import StickerGridItem from './StickerGridItem';
 
 interface StickerGridProps {

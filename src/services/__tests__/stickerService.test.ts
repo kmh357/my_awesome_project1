@@ -17,7 +17,7 @@ import {
   getStickerCollectionStats,
   getUserStickersByCategory,
 } from '../stickerService';
-import { Sticker, UserSticker } from '../../types/sticker';
+import type { Sticker, UserSticker } from '../../types/sticker';
 import * as localStorage from '../../utils/localStorage';
 
 // Mock localStorage utilities

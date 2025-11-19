@@ -3,13 +3,25 @@
  * 할 일 완료 시 획득한 스티커를 축하하는 모달을 표시합니다.
  */
 
-import { UserSticker } from '../types/sticker';
-import { StickerRarity } from '../types/sticker';
+import type { UserSticker } from '../types/sticker';
+import type { StickerRarity } from '../types/sticker';
 
 interface StickerRewardModalProps {
   userSticker: UserSticker | null;
   isOpen: boolean;
   onClose: () => void;
+}
+
+// 칭찬 메시지를 선택하는 순수 함수 (userStickerId 기반)
+function selectPraiseMessage(userStickerId: string, messages: string[]): string {
+  // userStickerId의 문자 코드를 합산하여 인덱스 결정 (결정론적)
+  let hash = 0;
+  for (let i = 0; i < userStickerId.length; i++) {
+    hash = ((hash << 5) - hash) + userStickerId.charCodeAt(i);
+    hash = hash & hash; // Convert to 32bit integer
+  }
+  const index = Math.abs(hash) % messages.length;
+  return messages[index];
 }
 
 // 희귀도별 색상 및 라벨
@@ -66,8 +78,9 @@ export default function StickerRewardModal({
 
   const { sticker } = userSticker;
   const rarityConfig = RARITY_CONFIG[sticker.rarity];
-  const randomPraise =
-    PRAISE_MESSAGES[Math.floor(Math.random() * PRAISE_MESSAGES.length)];
+
+  // userStickerId 기반으로 칭찬 메시지 선택 (순수 함수)
+  const randomPraise = selectPraiseMessage(userSticker.userStickerId, PRAISE_MESSAGES);
 
   return (
     <>

@@ -3,7 +3,8 @@
  * 사용자가 새로운 할 일을 입력하고 추가할 수 있습니다.
  */
 
-import { useState, FormEvent, ChangeEvent } from 'react';
+import { useState } from 'react';
+import type { FormEvent, ChangeEvent } from 'react';
 
 interface TodoInputProps {
   onAdd: (taskText: string) => void;

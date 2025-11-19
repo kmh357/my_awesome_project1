@@ -3,7 +3,7 @@
  * 여러 개의 TodoItem을 렌더링하고 빈 상태를 처리합니다.
  */
 
-import { Task } from '../types/task';
+import type { Task } from '../types/task';
 import TodoItem from './TodoItem';
 import EmptyState from './EmptyState';
 

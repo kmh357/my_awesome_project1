@@ -3,7 +3,7 @@
  * 로컬 스토리지를 사용하여 사용자 정보를 관리합니다.
  */
 
-import { User } from '../types/user';
+import type { User } from '../types/user';
 import {
   STORAGE_KEYS,
   getFromStorage,

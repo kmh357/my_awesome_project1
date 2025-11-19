@@ -10,7 +10,7 @@ import {
   hasUser,
   initializeUser,
 } from '../userService';
-import { User } from '../../types/user';
+import type { User } from '../../types/user';
 import * as localStorage from '../../utils/localStorage';
 
 // Mock localStorage utilities

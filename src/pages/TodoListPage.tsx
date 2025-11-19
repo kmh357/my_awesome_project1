@@ -3,17 +3,14 @@
  * 오늘의 할 일 목록과 진행도를 표시합니다.
  */
 
-import { useState, useEffect } from 'react';
-import { Task } from '../types/task';
-import { UserSticker } from '../types/sticker';
+import { useState, useEffect, useCallback } from 'react';
+import type { Task } from '../types/task';
+import type { UserSticker } from '../types/sticker';
 import {
-  getTodayTasks,
   getTasksByDate,
   toggleTaskCompletion,
   deleteTask,
   updateTask,
-  getTodayCompletedCount,
-  getTodayTaskCount,
   getCompletedCountByDate,
   getTaskCountByDate,
   createTask,
@@ -38,17 +35,18 @@ export default function TodoListPage() {
   const [isRewardModalOpen, setIsRewardModalOpen] = useState(false);
 
   // 할 일 목록 로드 (선택된 날짜 기준)
-  const loadTasks = () => {
+  const loadTasks = useCallback(() => {
     const dateTasks = getTasksByDate(selectedDate);
     setTasks(dateTasks);
     setCompletedCount(getCompletedCountByDate(selectedDate));
     setTotalCount(getTaskCountByDate(selectedDate));
-  };
+  }, [selectedDate]);
 
   // 컴포넌트 마운트 시 또는 날짜 변경 시 할 일 목록 로드
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     loadTasks();
-  }, [selectedDate]);
+  }, [loadTasks]);
 
   // 할 일 완료/미완료 토글
   const handleToggle = (taskId: string) => {

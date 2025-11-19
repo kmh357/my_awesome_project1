@@ -4,7 +4,7 @@
  */
 
 import { useState, useRef, useEffect } from 'react';
-import { Task } from '../types/task';
+import type { Task } from '../types/task';
 
 interface TodoItemProps {
   task: Task;

@@ -3,7 +3,7 @@
  * 전체 스티커 수집 진행도를 표시합니다.
  */
 
-import { StickerCollection } from '../types/sticker';
+import type { StickerCollection } from '../types/sticker';
 
 interface StickerCollectionProgressProps {
   stats: StickerCollection;
