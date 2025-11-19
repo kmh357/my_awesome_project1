@@ -5,6 +5,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import type { Task } from '../types/task';
+import { playCheckSound } from '../utils/soundUtils';
 
 interface TodoItemProps {
   task: Task;
@@ -19,6 +20,7 @@ export default function TodoItem({ task, onToggle, onDelete, onEdit }: TodoItemP
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleCheckboxChange = () => {
+    playCheckSound();
     onToggle(task.taskId);
   };
 

@@ -3,8 +3,10 @@
  * 할 일 완료 시 획득한 스티커를 축하하는 모달을 표시합니다.
  */
 
+import { useEffect } from 'react';
 import type { UserSticker } from '../types/sticker';
 import type { StickerRarity } from '../types/sticker';
+import { playStickerRewardSound } from '../utils/soundUtils';
 
 interface StickerRewardModalProps {
   userSticker: UserSticker | null;
@@ -72,6 +74,13 @@ export default function StickerRewardModal({
   isOpen,
   onClose,
 }: StickerRewardModalProps) {
+  // 모달이 열릴 때 사운드 재생
+  useEffect(() => {
+    if (isOpen && userSticker && userSticker.sticker) {
+      playStickerRewardSound(userSticker.sticker.rarity);
+    }
+  }, [isOpen, userSticker]);
+
   if (!isOpen || !userSticker || !userSticker.sticker) {
     return null;
   }

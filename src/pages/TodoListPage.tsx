@@ -22,6 +22,7 @@ import TodoList from '../components/TodoList';
 import TodoInput from '../components/TodoInput';
 import DateSelector from '../components/DateSelector';
 import StickerRewardModal from '../components/StickerRewardModal';
+import SoundToggle from '../components/SoundToggle';
 
 export default function TodoListPage() {
   // 오늘 날짜 (YYYY-MM-DD 형식)
@@ -137,6 +138,10 @@ export default function TodoListPage() {
           <p className="text-kid-base text-gray-600">
             오늘도 화이팅! 💪
           </p>
+          {/* 사운드 토글 */}
+          <div className="flex justify-center mt-4">
+            <SoundToggle />
+          </div>
         </div>
 
         {/* 카드 컨테이너 */}
