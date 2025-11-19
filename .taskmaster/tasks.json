@@ -8,6 +8,7 @@
       "status": "pending",
       "phase": "Phase 1-1 (Week 1-2)",
       "estimatedHours": 4,
+      "complexity": "Medium",
       "dependencies": [],
       "tags": ["setup", "infrastructure"],
       "acceptanceCriteria": [
@@ -26,6 +27,7 @@
       "status": "pending",
       "phase": "Phase 1-1 (Week 1-2)",
       "estimatedHours": 6,
+      "complexity": "Medium",
       "dependencies": ["TASK-001"],
       "tags": ["backend", "database"],
       "acceptanceCriteria": [
@@ -37,21 +39,81 @@
       ]
     },
     {
-      "taskId": "TASK-003",
-      "title": "UI/UX 디자인 시안 작성",
-      "description": "메인 화면, 할 일 추가 화면, 스티커 모음판 화면의 디자인 시안을 작성합니다. 초등학생 친화적인 밝고 친근한 색상과 큰 아이콘을 사용합니다.",
+      "taskId": "TASK-003A",
+      "title": "메인 화면 (할 일 목록) 디자인",
+      "description": "할 일 목록을 표시하는 메인 화면의 디자인 시안을 작성합니다. 초등학생 친화적인 레이아웃과 색상을 사용합니다.",
       "priority": "High",
       "status": "pending",
       "phase": "Phase 1-1 (Week 1-2)",
-      "estimatedHours": 8,
+      "estimatedHours": 2,
+      "complexity": "Low",
       "dependencies": [],
       "tags": ["design", "ui/ux"],
+      "parentTask": "TASK-003",
       "acceptanceCriteria": [
-        "메인 화면 (할 일 목록) 디자인 완료",
-        "할 일 추가 입력 화면 디자인 완료",
-        "스티커 보상 팝업 디자인 완료",
-        "스티커 모음판 화면 디자인 완료",
-        "색상 팔레트 및 타이포그래피 가이드 정의",
+        "할 일 목록 레이아웃 디자인 완료",
+        "완료/미완료 항목 시각적 구분 디자인",
+        "완료율 표시 영역 디자인",
+        "빈 상태 화면 디자인"
+      ]
+    },
+    {
+      "taskId": "TASK-003B",
+      "title": "할 일 추가 입력 화면 디자인",
+      "description": "할 일을 추가하는 입력 영역의 디자인 시안을 작성합니다. 큰 버튼과 명확한 입력 필드를 포함합니다.",
+      "priority": "High",
+      "status": "pending",
+      "phase": "Phase 1-1 (Week 1-2)",
+      "estimatedHours": 2,
+      "complexity": "Low",
+      "dependencies": [],
+      "tags": ["design", "ui/ux"],
+      "parentTask": "TASK-003",
+      "acceptanceCriteria": [
+        "입력 필드 디자인 (placeholder 포함)",
+        "추가 버튼 디자인 (최소 44x44px)",
+        "에러 메시지 표시 영역 디자인",
+        "글자 수 카운터 디자인"
+      ]
+    },
+    {
+      "taskId": "TASK-003C",
+      "title": "스티커 보상 팝업 디자인",
+      "description": "스티커 획득 시 표시되는 보상 팝업의 디자인 시안을 작성합니다. 밝고 즐거운 분위기로 디자인합니다.",
+      "priority": "High",
+      "status": "pending",
+      "phase": "Phase 1-1 (Week 1-2)",
+      "estimatedHours": 2,
+      "complexity": "Low",
+      "dependencies": [],
+      "tags": ["design", "ui/ux"],
+      "parentTask": "TASK-003",
+      "acceptanceCriteria": [
+        "팝업 배경 및 레이아웃 디자인",
+        "칭찬 메시지 텍스트 스타일링",
+        "스티커 이미지 표시 영역 디자인",
+        "희귀도 배지 디자인",
+        "확인 버튼 디자인"
+      ]
+    },
+    {
+      "taskId": "TASK-003D",
+      "title": "스티커 모음판 화면 및 디자인 가이드",
+      "description": "스티커 모음판 화면 디자인과 전체 앱의 색상 팔레트 및 타이포그래피 가이드를 작성합니다.",
+      "priority": "High",
+      "status": "pending",
+      "phase": "Phase 1-1 (Week 1-2)",
+      "estimatedHours": 2,
+      "complexity": "Medium",
+      "dependencies": ["TASK-003A", "TASK-003B", "TASK-003C"],
+      "tags": ["design", "ui/ux"],
+      "parentTask": "TASK-003",
+      "acceptanceCriteria": [
+        "그리드 레이아웃 디자인 (3x3 또는 4x4)",
+        "획득/미획득 스티커 표시 디자인",
+        "진행도 바 디자인",
+        "색상 팔레트 정의 (primary, secondary, accent 등)",
+        "타이포그래피 가이드 (제목, 본문, 버튼 등)",
         "Figma/Sketch 파일 또는 디자인 문서 작성"
       ]
     },
@@ -63,6 +125,7 @@
       "status": "pending",
       "phase": "Phase 1-1 (Week 1-2)",
       "estimatedHours": 3,
+      "complexity": "Low",
       "dependencies": ["TASK-001"],
       "tags": ["frontend", "routing"],
       "acceptanceCriteria": [
@@ -81,6 +144,7 @@
       "status": "pending",
       "phase": "Phase 1-1 (Week 1-2)",
       "estimatedHours": 6,
+      "complexity": "Medium",
       "dependencies": [],
       "tags": ["design", "assets"],
       "acceptanceCriteria": [
@@ -92,23 +156,63 @@
       ]
     },
     {
-      "taskId": "TASK-006",
-      "title": "할 일 추가 기능 구현",
-      "description": "사용자가 할 일을 입력하고 추가할 수 있는 기능을 구현합니다. 입력 필드, 추가 버튼, 유효성 검증을 포함합니다.",
+      "taskId": "TASK-006A",
+      "title": "할 일 입력 UI 컴포넌트 구현",
+      "description": "할 일을 입력하는 UI 컴포넌트를 구현합니다. 입력 필드, 추가 버튼, 글자 수 표시를 포함합니다.",
       "priority": "High",
       "status": "pending",
       "phase": "Phase 1-2 (Week 3-4)",
-      "estimatedHours": 8,
-      "dependencies": ["TASK-001", "TASK-002", "TASK-004"],
-      "tags": ["frontend", "backend", "core-feature"],
+      "estimatedHours": 3,
+      "complexity": "Low",
+      "dependencies": ["TASK-001", "TASK-003B", "TASK-004"],
+      "tags": ["frontend", "ui", "core-feature"],
+      "parentTask": "TASK-006",
       "acceptanceCriteria": [
         "할 일 입력 필드 구현 (최대 50자 제한)",
         "placeholder 텍스트 표시: '예: 수학 숙제하기, 강아지 밥 주기'",
-        "추가 버튼 클릭 시 할 일 목록에 추가",
-        "빈 내용 입력 시 유효성 검증 및 에러 메시지 표시",
-        "Enter 키 입력 시 자동 추가 기능",
-        "데이터베이스에 할 일 저장 확인",
-        "날짜별 할 일 구분 저장"
+        "추가 버튼 UI 구현",
+        "글자 수 카운터 표시 (현재/최대)",
+        "Enter 키 입력 이벤트 핸들링"
+      ]
+    },
+    {
+      "taskId": "TASK-006B",
+      "title": "할 일 추가 백엔드 로직 구현",
+      "description": "할 일을 데이터베이스에 저장하는 백엔드 로직을 구현합니다. 날짜별 구분 저장 기능을 포함합니다.",
+      "priority": "High",
+      "status": "pending",
+      "phase": "Phase 1-2 (Week 3-4)",
+      "estimatedHours": 3,
+      "complexity": "Medium",
+      "dependencies": ["TASK-002", "TASK-006A"],
+      "tags": ["backend", "database", "core-feature"],
+      "parentTask": "TASK-006",
+      "acceptanceCriteria": [
+        "할 일 추가 서비스 함수 구현",
+        "데이터베이스에 할 일 저장 (taskId, taskText, createdDate 등)",
+        "날짜별 할 일 구분 저장",
+        "로컬 스토리지 또는 Firebase 연동",
+        "저장 성공/실패 처리"
+      ]
+    },
+    {
+      "taskId": "TASK-006C",
+      "title": "할 일 추가 유효성 검증 및 에러 처리",
+      "description": "할 일 입력 시 유효성 검증을 수행하고, 적절한 에러 메시지를 표시합니다.",
+      "priority": "High",
+      "status": "pending",
+      "phase": "Phase 1-2 (Week 3-4)",
+      "estimatedHours": 2,
+      "complexity": "Low",
+      "dependencies": ["TASK-006A", "TASK-006B"],
+      "tags": ["frontend", "validation", "core-feature"],
+      "parentTask": "TASK-006",
+      "acceptanceCriteria": [
+        "빈 내용 입력 시 유효성 검증",
+        "에러 메시지 표시 ('할 일을 입력해주세요')",
+        "50자 초과 방지",
+        "특수문자 처리 (XSS 방지)",
+        "추가 성공 시 입력 필드 초기화"
       ]
     },
     {
@@ -119,7 +223,8 @@
       "status": "pending",
       "phase": "Phase 1-2 (Week 3-4)",
       "estimatedHours": 6,
-      "dependencies": ["TASK-006"],
+      "complexity": "Medium",
+      "dependencies": ["TASK-006B"],
       "tags": ["frontend", "core-feature"],
       "acceptanceCriteria": [
         "할 일 목록 컴포넌트 구현",
@@ -131,22 +236,59 @@
       ]
     },
     {
-      "taskId": "TASK-008",
-      "title": "할 일 완료 체크 기능 구현",
-      "description": "사용자가 할 일을 완료했을 때 체크 표시를 할 수 있는 기능을 구현합니다. 체크박스, 애니메이션, 상태 저장을 포함합니다.",
+      "taskId": "TASK-008A",
+      "title": "체크박스 기본 기능 구현",
+      "description": "할 일 항목에 체크박스를 추가하고 토글 기능을 구현합니다.",
       "priority": "High",
       "status": "pending",
       "phase": "Phase 1-2 (Week 3-4)",
-      "estimatedHours": 8,
+      "estimatedHours": 3,
+      "complexity": "Low",
       "dependencies": ["TASK-007"],
-      "tags": ["frontend", "backend", "core-feature"],
+      "tags": ["frontend", "ui", "core-feature"],
+      "parentTask": "TASK-008",
       "acceptanceCriteria": [
         "각 할 일 항목에 체크박스 또는 원형 버튼 추가",
         "체크 시 항목에 취소선 또는 색상 변경",
         "체크 해제 가능 (토글 기능)",
+        "체크박스 크기 충분히 크게 (터치 친화적)"
+      ]
+    },
+    {
+      "taskId": "TASK-008B",
+      "title": "체크 애니메이션 효과 추가",
+      "description": "체크박스 클릭 시 부드러운 애니메이션 효과를 추가합니다.",
+      "priority": "Medium",
+      "status": "pending",
+      "phase": "Phase 1-2 (Week 3-4)",
+      "estimatedHours": 2,
+      "complexity": "Low",
+      "dependencies": ["TASK-008A"],
+      "tags": ["frontend", "animation", "ui/ux"],
+      "parentTask": "TASK-008",
+      "acceptanceCriteria": [
         "체크/해제 시 0.3초 애니메이션 효과",
-        "체크 상태 데이터베이스에 실시간 저장",
-        "완료 시 completedDate 기록"
+        "부드러운 전환 효과 (transition)",
+        "시각적 피드백 명확하게 제공"
+      ]
+    },
+    {
+      "taskId": "TASK-008C",
+      "title": "체크 상태 데이터베이스 저장",
+      "description": "체크 상태를 데이터베이스에 실시간으로 저장하고, 완료 날짜를 기록합니다.",
+      "priority": "High",
+      "status": "pending",
+      "phase": "Phase 1-2 (Week 3-4)",
+      "estimatedHours": 3,
+      "complexity": "Medium",
+      "dependencies": ["TASK-008A", "TASK-002"],
+      "tags": ["backend", "database", "core-feature"],
+      "parentTask": "TASK-008",
+      "acceptanceCriteria": [
+        "체크 상태 데이터베이스에 실시간 저장 (isCompleted)",
+        "완료 시 completedDate 기록",
+        "체크 해제 시 completedDate 제거",
+        "낙관적 업데이트 (Optimistic Update) 구현"
       ]
     },
     {
@@ -157,7 +299,8 @@
       "status": "pending",
       "phase": "Phase 1-2 (Week 3-4)",
       "estimatedHours": 3,
-      "dependencies": ["TASK-008"],
+      "complexity": "Low",
+      "dependencies": ["TASK-008C"],
       "tags": ["frontend", "feature"],
       "acceptanceCriteria": [
         "완료된 항목 수 / 전체 항목 수 계산",
@@ -174,6 +317,7 @@
       "status": "pending",
       "phase": "Phase 1-2 (Week 3-4)",
       "estimatedHours": 4,
+      "complexity": "Medium",
       "dependencies": ["TASK-007"],
       "tags": ["frontend", "feature"],
       "acceptanceCriteria": [
@@ -185,23 +329,83 @@
       ]
     },
     {
-      "taskId": "TASK-011",
-      "title": "스티커 보상 시스템 구현 - 팝업 및 랜덤 로직",
-      "description": "할 일 완료 시 랜덤 스티커와 칭찬 메시지를 표시하는 보상 팝업을 구현합니다. 희귀도별 확률 로직을 포함합니다.",
+      "taskId": "TASK-011A",
+      "title": "스티커 랜덤 선택 로직 구현",
+      "description": "희귀도별 확률을 적용한 스티커 랜덤 선택 알고리즘을 구현합니다.",
       "priority": "High",
       "status": "pending",
       "phase": "Phase 1-3 (Week 5-6)",
-      "estimatedHours": 10,
-      "dependencies": ["TASK-008", "TASK-005"],
-      "tags": ["frontend", "backend", "core-feature"],
+      "estimatedHours": 3,
+      "complexity": "Medium",
+      "dependencies": ["TASK-005"],
+      "tags": ["backend", "algorithm", "core-feature"],
+      "parentTask": "TASK-011",
       "acceptanceCriteria": [
-        "할 일 완료 시 보상 팝업 자동 표시",
-        "랜덤 스티커 선택 로직 구현 (희귀도별 확률 적용)",
+        "희귀도별 확률 가중치 정의 (common 60%, rare 25%, epic 12%, legendary 3%)",
+        "가중치 기반 랜덤 선택 알고리즘 구현",
+        "선택된 희귀도에서 랜덤 스티커 선택",
+        "스티커 메타데이터 로딩",
+        "랜덤 로직 테스트 (100회 실행 시 확률 분포 확인)"
+      ]
+    },
+    {
+      "taskId": "TASK-011B",
+      "title": "보상 팝업 UI 구현",
+      "description": "스티커와 칭찬 메시지를 표시하는 보상 팝업 UI를 구현합니다.",
+      "priority": "High",
+      "status": "pending",
+      "phase": "Phase 1-3 (Week 5-6)",
+      "estimatedHours": 3,
+      "complexity": "Medium",
+      "dependencies": ["TASK-003C", "TASK-008C"],
+      "tags": ["frontend", "ui", "core-feature"],
+      "parentTask": "TASK-011",
+      "acceptanceCriteria": [
+        "팝업 모달 컴포넌트 구현",
+        "칭찬 메시지 표시 (랜덤 선택)",
         "스티커 이미지를 화면 중앙에 크게 표시",
-        "칭찬 메시지 랜덤 선택 ('참 잘했어요!', '대단해요!' 등)",
+        "희귀도 배지 표시",
+        "확인 버튼 구현",
+        "할 일 완료 시 자동 팝업 표시"
+      ]
+    },
+    {
+      "taskId": "TASK-011C",
+      "title": "보상 팝업 애니메이션 효과 추가",
+      "description": "보상 팝업에 '짠!' 효과, 회전, 반짝임 등의 애니메이션을 추가합니다.",
+      "priority": "Medium",
+      "status": "pending",
+      "phase": "Phase 1-3 (Week 5-6)",
+      "estimatedHours": 2,
+      "complexity": "Medium",
+      "dependencies": ["TASK-011B"],
+      "tags": ["frontend", "animation", "ui/ux"],
+      "parentTask": "TASK-011",
+      "acceptanceCriteria": [
+        "팝업 나타날 때 '짠!' 효과 (scale, rotate)",
+        "스티커 반짝임 또는 회전 애니메이션",
+        "부드러운 페이드 인/아웃",
+        "Framer Motion 또는 CSS 애니메이션 활용"
+      ]
+    },
+    {
+      "taskId": "TASK-011D",
+      "title": "스티커 획득 데이터 저장 및 자동 닫기",
+      "description": "획득한 스티커를 데이터베이스에 저장하고, 팝업 자동 닫기 기능을 구현합니다.",
+      "priority": "High",
+      "status": "pending",
+      "phase": "Phase 1-3 (Week 5-6)",
+      "estimatedHours": 2,
+      "complexity": "Low",
+      "dependencies": ["TASK-011B", "TASK-002"],
+      "tags": ["backend", "database", "core-feature"],
+      "parentTask": "TASK-011",
+      "acceptanceCriteria": [
         "확인 버튼 클릭 시 스티커 모음판에 저장",
-        "팝업 애니메이션 효과 (짠! 효과, 회전, 반짝임)",
-        "3-5초 후 자동 닫기 옵션 구현"
+        "UserStickers 테이블에 스티커 정보 저장",
+        "획득 날짜 기록",
+        "3-5초 후 자동 닫기 옵션 구현",
+        "팝업 닫기 후 상태 초기화"
       ]
     },
     {
@@ -212,7 +416,8 @@
       "status": "pending",
       "phase": "Phase 1-3 (Week 5-6)",
       "estimatedHours": 2,
-      "dependencies": ["TASK-011"],
+      "complexity": "Low",
+      "dependencies": ["TASK-011B"],
       "tags": ["frontend", "feature"],
       "acceptanceCriteria": [
         "칭찬 메시지 배열 정의 (최소 10개)",
@@ -223,22 +428,61 @@
       ]
     },
     {
-      "taskId": "TASK-013",
-      "title": "스티커 모음판 UI 구현",
-      "description": "사용자가 획득한 스티커를 그리드 형태로 볼 수 있는 컬렉션 페이지를 구현합니다.",
+      "taskId": "TASK-013A",
+      "title": "스티커 그리드 레이아웃 UI 구현",
+      "description": "스티커를 그리드 형태로 표시하는 기본 레이아웃을 구현합니다.",
       "priority": "High",
       "status": "pending",
       "phase": "Phase 1-3 (Week 5-6)",
-      "estimatedHours": 8,
-      "dependencies": ["TASK-004", "TASK-005"],
-      "tags": ["frontend", "core-feature"],
+      "estimatedHours": 3,
+      "complexity": "Medium",
+      "dependencies": ["TASK-004", "TASK-003D"],
+      "tags": ["frontend", "ui", "core-feature"],
+      "parentTask": "TASK-013",
       "acceptanceCriteria": [
         "그리드 레이아웃 구현 (3x3 또는 4x4)",
+        "스크롤 가능한 레이아웃",
+        "반응형 디자인 (다양한 화면 크기 지원)",
+        "스티커 카드 컴포넌트 생성"
+      ]
+    },
+    {
+      "taskId": "TASK-013B",
+      "title": "스티커 데이터 로딩 및 표시 로직",
+      "description": "사용자가 획득한 스티커와 미획득 스티커를 구분하여 표시하는 로직을 구현합니다.",
+      "priority": "High",
+      "status": "pending",
+      "phase": "Phase 1-3 (Week 5-6)",
+      "estimatedHours": 3,
+      "complexity": "Medium",
+      "dependencies": ["TASK-013A", "TASK-005", "TASK-011D"],
+      "tags": ["frontend", "backend", "core-feature"],
+      "parentTask": "TASK-013",
+      "acceptanceCriteria": [
+        "전체 스티커 목록 조회",
+        "사용자 획득 스티커 목록 조회",
         "획득한 스티커는 컬러로 표시",
         "미획득 스티커는 실루엣 또는 잠금 아이콘으로 표시",
+        "스티커 클릭 시 상세 정보 표시 (획득 날짜)"
+      ]
+    },
+    {
+      "taskId": "TASK-013C",
+      "title": "스티커 모음판 진행도 바 및 통계 표시",
+      "description": "수집 진행도 바와 통계 정보를 표시합니다.",
+      "priority": "Medium",
+      "status": "pending",
+      "phase": "Phase 1-3 (Week 5-6)",
+      "estimatedHours": 2,
+      "complexity": "Low",
+      "dependencies": ["TASK-013B"],
+      "tags": ["frontend", "ui", "feature"],
+      "parentTask": "TASK-013",
+      "acceptanceCriteria": [
         "전체 스티커 수 / 획득 스티커 수 표시 ('35개 중 12개 수집!')",
         "수집 진행도 바(progress bar) 추가",
-        "스크롤 가능한 레이아웃"
+        "카테고리별 수집 현황 표시 (선택적)",
+        "진행도 퍼센티지 계산 및 표시"
       ]
     },
     {
@@ -249,7 +493,8 @@
       "status": "pending",
       "phase": "Phase 1-3 (Week 5-6)",
       "estimatedHours": 6,
-      "dependencies": ["TASK-002", "TASK-011"],
+      "complexity": "Medium",
+      "dependencies": ["TASK-002", "TASK-011D"],
       "tags": ["backend", "feature"],
       "acceptanceCriteria": [
         "스티커 획득 시 UserStickers 테이블에 저장",
@@ -267,7 +512,8 @@
       "status": "pending",
       "phase": "Phase 1-3 (Week 5-6)",
       "estimatedHours": 6,
-      "dependencies": ["TASK-008", "TASK-011"],
+      "complexity": "Medium",
+      "dependencies": ["TASK-008B", "TASK-011C"],
       "tags": ["frontend", "ui/ux"],
       "acceptanceCriteria": [
         "체크박스 체크 시 0.3초 애니메이션",
@@ -286,7 +532,8 @@
       "status": "pending",
       "phase": "Phase 1-3 (Week 5-6)",
       "estimatedHours": 4,
-      "dependencies": ["TASK-011"],
+      "complexity": "Low",
+      "dependencies": ["TASK-011D"],
       "tags": ["frontend", "feature"],
       "acceptanceCriteria": [
         "스티커 획득 시 사운드 효과 재생",
@@ -304,6 +551,7 @@
       "status": "pending",
       "phase": "Phase 1-3 (Week 5-6)",
       "estimatedHours": 5,
+      "complexity": "Medium",
       "dependencies": ["TASK-007"],
       "tags": ["frontend", "backend", "feature"],
       "acceptanceCriteria": [
@@ -315,22 +563,67 @@
       ]
     },
     {
-      "taskId": "TASK-018",
-      "title": "전체 기능 테스트 및 사용성 검증",
-      "description": "모든 핵심 기능이 정상 작동하는지 테스트하고, 초등학생 사용자 관점에서 사용성을 검증합니다.",
+      "taskId": "TASK-018A",
+      "title": "핵심 기능 테스트 (할 일 CRUD, 스티커)",
+      "description": "할 일 추가/완료/삭제와 스티커 획득/표시 기능을 테스트합니다.",
       "priority": "High",
       "status": "pending",
       "phase": "Phase 1-3 (Week 5-6)",
-      "estimatedHours": 8,
-      "dependencies": ["TASK-006", "TASK-008", "TASK-011", "TASK-013"],
+      "estimatedHours": 3,
+      "complexity": "Medium",
+      "dependencies": ["TASK-006C", "TASK-008C", "TASK-011D", "TASK-013B"],
       "tags": ["testing", "qa"],
+      "parentTask": "TASK-018",
       "acceptanceCriteria": [
-        "할 일 추가, 완료, 삭제 테스트",
-        "스티커 획득 및 모음판 표시 테스트",
-        "다양한 기기 및 화면 크기에서 테스트",
-        "성능 테스트 (로딩 시간 2초 이내)",
-        "사용자 시나리오 기반 테스트 (PRD의 User Stories 활용)",
-        "버그 리스트 작성"
+        "할 일 추가 기능 테스트 (정상 입력, 빈 입력, 50자 초과)",
+        "할 일 완료 체크 테스트 (체크, 해제, 애니메이션)",
+        "할 일 삭제 테스트",
+        "스티커 획득 테스트 (확률 분포 확인)",
+        "스티커 모음판 표시 테스트",
+        "테스트 결과 문서 작성"
+      ]
+    },
+    {
+      "taskId": "TASK-018B",
+      "title": "성능 및 호환성 테스트",
+      "description": "앱의 성능과 다양한 기기/브라우저 호환성을 테스트합니다.",
+      "priority": "High",
+      "status": "pending",
+      "phase": "Phase 1-3 (Week 5-6)",
+      "estimatedHours": 3,
+      "complexity": "Medium",
+      "dependencies": ["TASK-018A"],
+      "tags": ["testing", "performance", "qa"],
+      "parentTask": "TASK-018",
+      "acceptanceCriteria": [
+        "로딩 시간 테스트 (초기 로딩 2초 이내)",
+        "버튼 반응 속도 테스트 (0.3초 이내)",
+        "다양한 화면 크기에서 테스트 (mobile, tablet, desktop)",
+        "크로스 브라우저 테스트 (Chrome, Safari, Firefox)",
+        "이미지 로딩 최적화 확인",
+        "메모리 사용량 모니터링"
+      ]
+    },
+    {
+      "taskId": "TASK-018C",
+      "title": "사용자 시나리오 기반 사용성 테스트",
+      "description": "PRD의 User Stories를 기반으로 사용성 테스트를 수행합니다.",
+      "priority": "High",
+      "status": "pending",
+      "phase": "Phase 1-3 (Week 5-6)",
+      "estimatedHours": 2,
+      "complexity": "Low",
+      "dependencies": ["TASK-018B"],
+      "tags": ["testing", "usability", "qa"],
+      "parentTask": "TASK-018",
+      "acceptanceCriteria": [
+        "User Story 1 테스트 (학교 숙제 관리)",
+        "User Story 2 테스트 (하루 일과 계획)",
+        "User Story 3 테스트 (스티커 수집)",
+        "User Story 4 테스트 (실수로 체크)",
+        "User Story 5 테스트 (주말 목표 달성)",
+        "초등학생 관점 사용성 평가",
+        "버그 리스트 작성 (우선순위 포함)"
       ]
     },
     {
@@ -341,7 +634,8 @@
       "status": "pending",
       "phase": "Phase 1-3 (Week 5-6)",
       "estimatedHours": 6,
-      "dependencies": ["TASK-018"],
+      "complexity": "Medium",
+      "dependencies": ["TASK-018C"],
       "tags": ["bug-fix", "optimization"],
       "acceptanceCriteria": [
         "발견된 모든 critical 버그 수정",
@@ -359,6 +653,7 @@
       "status": "pending",
       "phase": "Phase 2 (Beta)",
       "estimatedHours": 4,
+      "complexity": "Low",
       "dependencies": ["TASK-019"],
       "tags": ["frontend", "onboarding"],
       "acceptanceCriteria": [
@@ -371,13 +666,25 @@
     }
   ],
   "metadata": {
-    "totalTasks": 20,
+    "totalTasks": 37,
     "completedTasks": 0,
     "inProgressTasks": 0,
     "blockedTasks": 0,
     "lastGenerated": "2025-11-19T00:00:00.000Z",
+    "lastComplexityAnalysis": "2025-11-19T00:00:00.000Z",
     "prdPath": ".taskmaster/docs/prd.txt",
-    "generatedFrom": "찍찍이 (Tick-Tick-E) PRD v1.0.0"
+    "generatedFrom": "찍찍이 (Tick-Tick-E) PRD v1.0.0",
+    "complexityAnalysis": {
+      "highComplexityTasks": 6,
+      "tasksSubdivided": [
+        "TASK-003 → TASK-003A, TASK-003B, TASK-003C, TASK-003D",
+        "TASK-006 → TASK-006A, TASK-006B, TASK-006C",
+        "TASK-008 → TASK-008A, TASK-008B, TASK-008C",
+        "TASK-011 → TASK-011A, TASK-011B, TASK-011C, TASK-011D",
+        "TASK-013 → TASK-013A, TASK-013B, TASK-013C",
+        "TASK-018 → TASK-018A, TASK-018B, TASK-018C"
+      ]
+    }
   },
-  "version": "1.0.0"
+  "version": "1.1.0"
 }
