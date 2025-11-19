@@ -11,9 +11,12 @@ import {
   deleteTask,
   getTodayCompletedCount,
   getTodayTaskCount,
+  createTask,
 } from '../services/taskService';
+import { getCurrentUser } from '../services/userService';
 import ProgressBar from '../components/ProgressBar';
 import TodoList from '../components/TodoList';
+import TodoInput from '../components/TodoInput';
 
 export default function TodoListPage() {
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -64,6 +67,18 @@ export default function TodoListPage() {
     console.log('할 일 추가 버튼 클릭');
   };
 
+  // 할 일 추가
+  const handleAdd = (taskText: string) => {
+    const user = getCurrentUser();
+    if (!user) {
+      console.error('사용자 정보를 찾을 수 없습니다.');
+      return;
+    }
+
+    createTask(user.userId, { taskText });
+    loadTasks();
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary-light/20 to-white p-4">
       <div className="max-w-2xl mx-auto">
@@ -79,6 +94,9 @@ export default function TodoListPage() {
 
         {/* 카드 컨테이너 */}
         <div className="card">
+          {/* 할 일 추가 입력 */}
+          <TodoInput onAdd={handleAdd} maxLength={50} />
+
           {/* 진행도 바 */}
           <ProgressBar completed={completedCount} total={totalCount} />
 
