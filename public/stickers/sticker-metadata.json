@@ -1,0 +1,259 @@
+{
+  "version": "1.0.0",
+  "totalStickers": 25,
+  "categories": {
+    "animal": {
+      "name": "동물",
+      "description": "귀여운 동물 친구들",
+      "count": 5
+    },
+    "food": {
+      "name": "음식",
+      "description": "맛있는 음식들",
+      "count": 5
+    },
+    "nature": {
+      "name": "자연",
+      "description": "아름다운 자연",
+      "count": 5
+    },
+    "trophy": {
+      "name": "트로피",
+      "description": "멋진 트로피와 메달",
+      "count": 5
+    },
+    "emoji": {
+      "name": "이모지",
+      "description": "다양한 표정",
+      "count": 5
+    }
+  },
+  "rarities": {
+    "common": {
+      "name": "일반",
+      "probability": 0.60,
+      "color": "#9CA3AF",
+      "count": 11
+    },
+    "rare": {
+      "name": "레어",
+      "probability": 0.25,
+      "color": "#60A5FA",
+      "count": 7
+    },
+    "epic": {
+      "name": "에픽",
+      "probability": 0.12,
+      "color": "#C084FC",
+      "count": 5
+    },
+    "legendary": {
+      "name": "전설",
+      "probability": 0.03,
+      "color": "#FACC15",
+      "count": 2
+    }
+  },
+  "stickers": [
+    {
+      "stickerId": "sticker_001",
+      "stickerName": "토끼",
+      "imageUrl": "🐰",
+      "rarity": "common",
+      "category": "animal",
+      "description": "귀여운 토끼"
+    },
+    {
+      "stickerId": "sticker_002",
+      "stickerName": "고양이",
+      "imageUrl": "🐱",
+      "rarity": "common",
+      "category": "animal",
+      "description": "사랑스러운 고양이"
+    },
+    {
+      "stickerId": "sticker_003",
+      "stickerName": "강아지",
+      "imageUrl": "🐶",
+      "rarity": "common",
+      "category": "animal",
+      "description": "충실한 강아지"
+    },
+    {
+      "stickerId": "sticker_004",
+      "stickerName": "판다",
+      "imageUrl": "🐼",
+      "rarity": "rare",
+      "category": "animal",
+      "description": "귀여운 판다"
+    },
+    {
+      "stickerId": "sticker_005",
+      "stickerName": "유니콘",
+      "imageUrl": "🦄",
+      "rarity": "epic",
+      "category": "animal",
+      "description": "마법의 유니콘"
+    },
+    {
+      "stickerId": "sticker_006",
+      "stickerName": "사탕",
+      "imageUrl": "🍬",
+      "rarity": "common",
+      "category": "food",
+      "description": "달콤한 사탕"
+    },
+    {
+      "stickerId": "sticker_007",
+      "stickerName": "아이스크림",
+      "imageUrl": "🍦",
+      "rarity": "common",
+      "category": "food",
+      "description": "시원한 아이스크림"
+    },
+    {
+      "stickerId": "sticker_008",
+      "stickerName": "케이크",
+      "imageUrl": "🍰",
+      "rarity": "rare",
+      "category": "food",
+      "description": "맛있는 케이크"
+    },
+    {
+      "stickerId": "sticker_009",
+      "stickerName": "도넛",
+      "imageUrl": "🍩",
+      "rarity": "common",
+      "category": "food",
+      "description": "달콤한 도넛"
+    },
+    {
+      "stickerId": "sticker_010",
+      "stickerName": "초콜릿",
+      "imageUrl": "🍫",
+      "rarity": "rare",
+      "category": "food",
+      "description": "고급 초콜릿"
+    },
+    {
+      "stickerId": "sticker_011",
+      "stickerName": "별",
+      "imageUrl": "⭐",
+      "rarity": "common",
+      "category": "nature",
+      "description": "반짝이는 별"
+    },
+    {
+      "stickerId": "sticker_012",
+      "stickerName": "달",
+      "imageUrl": "🌙",
+      "rarity": "common",
+      "category": "nature",
+      "description": "밤하늘의 달"
+    },
+    {
+      "stickerId": "sticker_013",
+      "stickerName": "해",
+      "imageUrl": "☀️",
+      "rarity": "rare",
+      "category": "nature",
+      "description": "따뜻한 해"
+    },
+    {
+      "stickerId": "sticker_014",
+      "stickerName": "무지개",
+      "imageUrl": "🌈",
+      "rarity": "epic",
+      "category": "nature",
+      "description": "아름다운 무지개"
+    },
+    {
+      "stickerId": "sticker_015",
+      "stickerName": "꽃",
+      "imageUrl": "🌸",
+      "rarity": "common",
+      "category": "nature",
+      "description": "예쁜 꽃"
+    },
+    {
+      "stickerId": "sticker_016",
+      "stickerName": "금메달",
+      "imageUrl": "🥇",
+      "rarity": "legendary",
+      "category": "trophy",
+      "description": "1등 금메달"
+    },
+    {
+      "stickerId": "sticker_017",
+      "stickerName": "은메달",
+      "imageUrl": "🥈",
+      "rarity": "epic",
+      "category": "trophy",
+      "description": "2등 은메달"
+    },
+    {
+      "stickerId": "sticker_018",
+      "stickerName": "동메달",
+      "imageUrl": "🥉",
+      "rarity": "rare",
+      "category": "trophy",
+      "description": "3등 동메달"
+    },
+    {
+      "stickerId": "sticker_019",
+      "stickerName": "왕관",
+      "imageUrl": "👑",
+      "rarity": "legendary",
+      "category": "trophy",
+      "description": "왕의 왕관"
+    },
+    {
+      "stickerId": "sticker_020",
+      "stickerName": "트로피",
+      "imageUrl": "🏆",
+      "rarity": "epic",
+      "category": "trophy",
+      "description": "우승 트로피"
+    },
+    {
+      "stickerId": "sticker_021",
+      "stickerName": "웃음",
+      "imageUrl": "😊",
+      "rarity": "common",
+      "category": "emoji",
+      "description": "환하게 웃는 얼굴"
+    },
+    {
+      "stickerId": "sticker_022",
+      "stickerName": "하트",
+      "imageUrl": "❤️",
+      "rarity": "common",
+      "category": "emoji",
+      "description": "사랑의 하트"
+    },
+    {
+      "stickerId": "sticker_023",
+      "stickerName": "박수",
+      "imageUrl": "👏",
+      "rarity": "rare",
+      "category": "emoji",
+      "description": "박수치는 손"
+    },
+    {
+      "stickerId": "sticker_024",
+      "stickerName": "최고",
+      "imageUrl": "👍",
+      "rarity": "common",
+      "category": "emoji",
+      "description": "최고를 외치는 엄지"
+    },
+    {
+      "stickerId": "sticker_025",
+      "stickerName": "불꽃",
+      "imageUrl": "🔥",
+      "rarity": "epic",
+      "category": "emoji",
+      "description": "타오르는 불꽃"
+    }
+  ]
+}

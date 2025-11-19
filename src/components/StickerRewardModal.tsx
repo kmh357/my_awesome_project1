@@ -99,7 +99,7 @@ export default function StickerRewardModal({
             <div className="w-48 h-48 mx-auto bg-gradient-to-br from-primary-light/30 to-secondary/30 rounded-full flex items-center justify-center shadow-lg animate-pulse-slow">
               {/* 스티커 이미지 */}
               <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center text-8xl shadow-inner">
-                {/* 실제 스티커 이미지가 있으면 img 태그 사용, 없으면 placeholder */}
+                {/* 실제 스티커 이미지가 있으면 img 태그 사용, 없으면 이모지 표시 */}
                 {sticker.imageUrl && sticker.imageUrl.startsWith('http') ? (
                   <img
                     src={sticker.imageUrl}
@@ -107,7 +107,7 @@ export default function StickerRewardModal({
                     className="w-28 h-28 object-contain"
                   />
                 ) : (
-                  <span className="text-7xl">{rarityConfig.sparkle}</span>
+                  <span className="text-7xl">{sticker.imageUrl}</span>
                 )}
               </div>
             </div>

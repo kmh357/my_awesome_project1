@@ -67,7 +67,7 @@ export default function StickerGridItem({
               className="w-full h-full object-contain"
             />
           ) : (
-            <span className="text-5xl">{RARITY_EMOJI[sticker.rarity]}</span>
+            <span className="text-5xl">{sticker.imageUrl}</span>
           )
         ) : (
           <div className="text-4xl text-gray-400">?</div>

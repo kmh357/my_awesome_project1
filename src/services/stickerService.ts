@@ -32,39 +32,39 @@ export function initializeDefaultStickers(): void {
 
   const defaultStickers: Sticker[] = [
     // 동물 스티커 (Animal)
-    { stickerId: 'sticker_001', stickerName: '토끼', imageUrl: '/stickers/rabbit.png', rarity: 'common', category: 'animal' },
-    { stickerId: 'sticker_002', stickerName: '고양이', imageUrl: '/stickers/cat.png', rarity: 'common', category: 'animal' },
-    { stickerId: 'sticker_003', stickerName: '강아지', imageUrl: '/stickers/dog.png', rarity: 'common', category: 'animal' },
-    { stickerId: 'sticker_004', stickerName: '판다', imageUrl: '/stickers/panda.png', rarity: 'rare', category: 'animal' },
-    { stickerId: 'sticker_005', stickerName: '유니콘', imageUrl: '/stickers/unicorn.png', rarity: 'epic', category: 'animal' },
+    { stickerId: 'sticker_001', stickerName: '토끼', imageUrl: '🐰', rarity: 'common', category: 'animal' },
+    { stickerId: 'sticker_002', stickerName: '고양이', imageUrl: '🐱', rarity: 'common', category: 'animal' },
+    { stickerId: 'sticker_003', stickerName: '강아지', imageUrl: '🐶', rarity: 'common', category: 'animal' },
+    { stickerId: 'sticker_004', stickerName: '판다', imageUrl: '🐼', rarity: 'rare', category: 'animal' },
+    { stickerId: 'sticker_005', stickerName: '유니콘', imageUrl: '🦄', rarity: 'epic', category: 'animal' },
 
     // 음식 스티커 (Food)
-    { stickerId: 'sticker_006', stickerName: '사탕', imageUrl: '/stickers/candy.png', rarity: 'common', category: 'food' },
-    { stickerId: 'sticker_007', stickerName: '아이스크림', imageUrl: '/stickers/icecream.png', rarity: 'common', category: 'food' },
-    { stickerId: 'sticker_008', stickerName: '케이크', imageUrl: '/stickers/cake.png', rarity: 'rare', category: 'food' },
-    { stickerId: 'sticker_009', stickerName: '도넛', imageUrl: '/stickers/donut.png', rarity: 'common', category: 'food' },
-    { stickerId: 'sticker_010', stickerName: '초콜릿', imageUrl: '/stickers/chocolate.png', rarity: 'rare', category: 'food' },
+    { stickerId: 'sticker_006', stickerName: '사탕', imageUrl: '🍬', rarity: 'common', category: 'food' },
+    { stickerId: 'sticker_007', stickerName: '아이스크림', imageUrl: '🍦', rarity: 'common', category: 'food' },
+    { stickerId: 'sticker_008', stickerName: '케이크', imageUrl: '🍰', rarity: 'rare', category: 'food' },
+    { stickerId: 'sticker_009', stickerName: '도넛', imageUrl: '🍩', rarity: 'common', category: 'food' },
+    { stickerId: 'sticker_010', stickerName: '초콜릿', imageUrl: '🍫', rarity: 'rare', category: 'food' },
 
     // 자연 스티커 (Nature)
-    { stickerId: 'sticker_011', stickerName: '별', imageUrl: '/stickers/star.png', rarity: 'common', category: 'nature' },
-    { stickerId: 'sticker_012', stickerName: '달', imageUrl: '/stickers/moon.png', rarity: 'common', category: 'nature' },
-    { stickerId: 'sticker_013', stickerName: '해', imageUrl: '/stickers/sun.png', rarity: 'rare', category: 'nature' },
-    { stickerId: 'sticker_014', stickerName: '무지개', imageUrl: '/stickers/rainbow.png', rarity: 'epic', category: 'nature' },
-    { stickerId: 'sticker_015', stickerName: '꽃', imageUrl: '/stickers/flower.png', rarity: 'common', category: 'nature' },
+    { stickerId: 'sticker_011', stickerName: '별', imageUrl: '⭐', rarity: 'common', category: 'nature' },
+    { stickerId: 'sticker_012', stickerName: '달', imageUrl: '🌙', rarity: 'common', category: 'nature' },
+    { stickerId: 'sticker_013', stickerName: '해', imageUrl: '☀️', rarity: 'rare', category: 'nature' },
+    { stickerId: 'sticker_014', stickerName: '무지개', imageUrl: '🌈', rarity: 'epic', category: 'nature' },
+    { stickerId: 'sticker_015', stickerName: '꽃', imageUrl: '🌸', rarity: 'common', category: 'nature' },
 
     // 트로피 스티커 (Trophy)
-    { stickerId: 'sticker_016', stickerName: '금메달', imageUrl: '/stickers/gold-medal.png', rarity: 'legendary', category: 'trophy' },
-    { stickerId: 'sticker_017', stickerName: '은메달', imageUrl: '/stickers/silver-medal.png', rarity: 'epic', category: 'trophy' },
-    { stickerId: 'sticker_018', stickerName: '동메달', imageUrl: '/stickers/bronze-medal.png', rarity: 'rare', category: 'trophy' },
-    { stickerId: 'sticker_019', stickerName: '왕관', imageUrl: '/stickers/crown.png', rarity: 'legendary', category: 'trophy' },
-    { stickerId: 'sticker_020', stickerName: '트로피', imageUrl: '/stickers/trophy.png', rarity: 'epic', category: 'trophy' },
+    { stickerId: 'sticker_016', stickerName: '금메달', imageUrl: '🥇', rarity: 'legendary', category: 'trophy' },
+    { stickerId: 'sticker_017', stickerName: '은메달', imageUrl: '🥈', rarity: 'epic', category: 'trophy' },
+    { stickerId: 'sticker_018', stickerName: '동메달', imageUrl: '🥉', rarity: 'rare', category: 'trophy' },
+    { stickerId: 'sticker_019', stickerName: '왕관', imageUrl: '👑', rarity: 'legendary', category: 'trophy' },
+    { stickerId: 'sticker_020', stickerName: '트로피', imageUrl: '🏆', rarity: 'epic', category: 'trophy' },
 
     // 이모지 스티커 (Emoji)
-    { stickerId: 'sticker_021', stickerName: '웃음', imageUrl: '/stickers/smile.png', rarity: 'common', category: 'emoji' },
-    { stickerId: 'sticker_022', stickerName: '하트', imageUrl: '/stickers/heart.png', rarity: 'common', category: 'emoji' },
-    { stickerId: 'sticker_023', stickerName: '박수', imageUrl: '/stickers/clap.png', rarity: 'rare', category: 'emoji' },
-    { stickerId: 'sticker_024', stickerName: '최고', imageUrl: '/stickers/thumbsup.png', rarity: 'common', category: 'emoji' },
-    { stickerId: 'sticker_025', stickerName: '불꽃', imageUrl: '/stickers/fire.png', rarity: 'epic', category: 'emoji' },
+    { stickerId: 'sticker_021', stickerName: '웃음', imageUrl: '😊', rarity: 'common', category: 'emoji' },
+    { stickerId: 'sticker_022', stickerName: '하트', imageUrl: '❤️', rarity: 'common', category: 'emoji' },
+    { stickerId: 'sticker_023', stickerName: '박수', imageUrl: '👏', rarity: 'rare', category: 'emoji' },
+    { stickerId: 'sticker_024', stickerName: '최고', imageUrl: '👍', rarity: 'common', category: 'emoji' },
+    { stickerId: 'sticker_025', stickerName: '불꽃', imageUrl: '🔥', rarity: 'epic', category: 'emoji' },
   ];
 
   saveToStorage(STORAGE_KEYS.STICKERS, defaultStickers);
