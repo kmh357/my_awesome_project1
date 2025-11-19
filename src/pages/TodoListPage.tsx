@@ -17,11 +17,13 @@ import {
 } from '../services/taskService';
 import { getCurrentUser } from '../services/userService';
 import { awardRandomStickerToUser, getStickerById } from '../services/stickerService';
+import { playSound } from '../services/soundService';
 import ProgressBar from '../components/ProgressBar';
 import TodoList from '../components/TodoList';
 import TodoInput from '../components/TodoInput';
 import DateSelector from '../components/DateSelector';
 import StickerRewardModal from '../components/StickerRewardModal';
+import SoundToggle from '../components/SoundToggle';
 
 export default function TodoListPage() {
   // 오늘 날짜 (YYYY-MM-DD 형식)
@@ -56,6 +58,9 @@ export default function TodoListPage() {
 
       // 할 일 완료 시 스티커 보상 로직
       if (updatedTask.isCompleted) {
+        // 완료 효과음 재생
+        playSound('complete');
+
         const user = getCurrentUser();
         if (user) {
           // 랜덤 스티커 획득
@@ -64,6 +69,9 @@ export default function TodoListPage() {
             // 스티커 정보 조회
             const sticker = getStickerById(userSticker.stickerId);
             if (sticker) {
+              // 보상 효과음 재생
+              setTimeout(() => playSound('reward'), 300);
+
               // 보상 모달 표시
               setRewardSticker({
                 ...userSticker,
@@ -131,6 +139,9 @@ export default function TodoListPage() {
       <div className="max-w-2xl mx-auto">
         {/* 헤더 */}
         <div className="text-center mb-8 pt-8">
+          <div className="flex justify-end mb-4">
+            <SoundToggle />
+          </div>
           <h1 className="text-kid-2xl font-bold text-primary mb-2">
             찍찍이 (Tick-Tick-E)
           </h1>
