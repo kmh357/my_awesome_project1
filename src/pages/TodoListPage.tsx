@@ -5,6 +5,7 @@
 
 import { useState, useEffect } from 'react';
 import { Task } from '../types/task';
+import { UserSticker } from '../types/sticker';
 import {
   getTodayTasks,
   toggleTaskCompletion,
@@ -14,14 +15,18 @@ import {
   createTask,
 } from '../services/taskService';
 import { getCurrentUser } from '../services/userService';
+import { awardRandomStickerToUser, getStickerById } from '../services/stickerService';
 import ProgressBar from '../components/ProgressBar';
 import TodoList from '../components/TodoList';
 import TodoInput from '../components/TodoInput';
+import StickerRewardModal from '../components/StickerRewardModal';
 
 export default function TodoListPage() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [completedCount, setCompletedCount] = useState(0);
   const [totalCount, setTotalCount] = useState(0);
+  const [rewardSticker, setRewardSticker] = useState<UserSticker | null>(null);
+  const [isRewardModalOpen, setIsRewardModalOpen] = useState(false);
 
   // 할 일 목록 로드
   const loadTasks = () => {
@@ -42,10 +47,25 @@ export default function TodoListPage() {
     if (updatedTask) {
       loadTasks(); // 목록 다시 로드
 
-      // 할 일 완료 시 스티커 보상 로직 (나중에 구현)
+      // 할 일 완료 시 스티커 보상 로직
       if (updatedTask.isCompleted) {
-        console.log('🎉 할 일 완료! 스티커 보상 예정');
-        // TODO: 스티커 보상 팝업 표시
+        const user = getCurrentUser();
+        if (user) {
+          // 랜덤 스티커 획득
+          const userSticker = awardRandomStickerToUser(user.userId);
+          if (userSticker) {
+            // 스티커 정보 조회
+            const sticker = getStickerById(userSticker.stickerId);
+            if (sticker) {
+              // 보상 모달 표시
+              setRewardSticker({
+                ...userSticker,
+                sticker,
+              });
+              setIsRewardModalOpen(true);
+            }
+          }
+        }
       }
     }
   };
@@ -77,6 +97,12 @@ export default function TodoListPage() {
 
     createTask(user.userId, { taskText });
     loadTasks();
+  };
+
+  // 보상 모달 닫기
+  const handleCloseRewardModal = () => {
+    setIsRewardModalOpen(false);
+    setRewardSticker(null);
   };
 
   return (
@@ -114,6 +140,13 @@ export default function TodoListPage() {
           <p>✨ 할 일을 완료하면 스티커를 받을 수 있어요!</p>
         </div>
       </div>
+
+      {/* 스티커 보상 모달 */}
+      <StickerRewardModal
+        userSticker={rewardSticker}
+        isOpen={isRewardModalOpen}
+        onClose={handleCloseRewardModal}
+      />
     </div>
   );
 }
