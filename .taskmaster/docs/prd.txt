@@ -1,0 +1,35 @@
+# Project Requirements Document
+
+## Project Overview
+**Project Name:** my_awesome_project1
+**Version:** 1.0.0
+**Last Updated:** 2025-11-19
+
+## Executive Summary
+This is a new project initialized with TaskMaster AI. Please customize this PRD with your project's specific requirements, goals, and features.
+
+## Goals and Objectives
+- Define your project goals here
+- Add specific objectives
+- Set measurable targets
+
+## Features and Requirements
+### Core Features
+1. **[Define your first feature]**
+   - Description: Add feature description
+   - Priority: High
+   - Requirements:
+     - Define specific requirements
+
+## Technical Requirements
+- **Technology Stack:** To be defined
+- **Architecture:** To be defined
+
+## Next Steps
+1. Customize this PRD with your project details
+2. Use TaskMaster AI to parse the PRD: "Parse my PRD"
+3. Generate tasks from your requirements
+4. Start building!
+
+---
+*For a complete PRD template, see `.taskmaster/templates/example_prd.txt`*

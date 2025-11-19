@@ -1,0 +1,23 @@
+{
+  "models": {
+    "main": {
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-5-20250929",
+      "temperature": 0.7
+    },
+    "research": {
+      "provider": "perplexity",
+      "model": "sonar-pro",
+      "temperature": 0.5
+    },
+    "fallback": {
+      "provider": "anthropic",
+      "model": "claude-sonnet-3-5-20241022",
+      "temperature": 0.7
+    }
+  },
+  "toolsMode": "core",
+  "projectName": "my_awesome_project1",
+  "initialized": true,
+  "version": "1.0.0"
+}

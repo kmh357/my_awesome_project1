@@ -1,0 +1,21 @@
+# TaskMaster AI - Generated files
+.taskmaster/state.json
+.taskmaster/reports/
+
+# Node modules (if using npm)
+node_modules/
+
+# Environment variables
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
