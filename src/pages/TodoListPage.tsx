@@ -11,6 +11,7 @@ import {
   getTasksByDate,
   toggleTaskCompletion,
   deleteTask,
+  updateTask,
   getTodayCompletedCount,
   getTodayTaskCount,
   getCompletedCountByDate,
@@ -89,6 +90,14 @@ export default function TodoListPage() {
     }
   };
 
+  // 할 일 수정
+  const handleEdit = (taskId: string, newText: string) => {
+    const updatedTask = updateTask(taskId, { taskText: newText });
+    if (updatedTask) {
+      loadTasks();
+    }
+  };
+
   // 할 일 추가 버튼 클릭 (스크롤 또는 포커스 이동)
   const handleAddClick = () => {
     // TODO: 할 일 추가 입력창으로 스크롤 또는 포커스
@@ -148,6 +157,7 @@ export default function TodoListPage() {
             tasks={tasks}
             onToggle={handleToggle}
             onDelete={handleDelete}
+            onEdit={handleEdit}
             onAddClick={handleAddClick}
           />
         </div>

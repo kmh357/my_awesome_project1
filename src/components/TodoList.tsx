@@ -11,6 +11,7 @@ interface TodoListProps {
   tasks: Task[];
   onToggle: (taskId: string) => void;
   onDelete?: (taskId: string) => void;
+  onEdit?: (taskId: string, newText: string) => void;
   onAddClick?: () => void;
 }
 
@@ -18,6 +19,7 @@ export default function TodoList({
   tasks,
   onToggle,
   onDelete,
+  onEdit,
   onAddClick,
 }: TodoListProps) {
   // 할 일이 없으면 빈 상태 표시
@@ -41,6 +43,7 @@ export default function TodoList({
           task={task}
           onToggle={onToggle}
           onDelete={onDelete}
+          onEdit={onEdit}
         />
       ))}
     </div>

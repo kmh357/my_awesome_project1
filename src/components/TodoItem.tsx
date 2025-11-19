@@ -3,18 +3,64 @@
  * 할 일 하나를 표시하고, 완료/미완료 상태를 체크박스로 표시합니다.
  */
 
+import { useState, useRef, useEffect } from 'react';
 import { Task } from '../types/task';
 
 interface TodoItemProps {
   task: Task;
   onToggle: (taskId: string) => void;
   onDelete?: (taskId: string) => void;
+  onEdit?: (taskId: string, newText: string) => void;
 }
 
-export default function TodoItem({ task, onToggle, onDelete }: TodoItemProps) {
+export default function TodoItem({ task, onToggle, onDelete, onEdit }: TodoItemProps) {
+  const [isEditing, setIsEditing] = useState(false);
+  const [editText, setEditText] = useState(task.taskText);
+  const inputRef = useRef<HTMLInputElement>(null);
+
   const handleCheckboxChange = () => {
     onToggle(task.taskId);
   };
+
+  // 편집 모드 진입
+  const handleTextClick = () => {
+    if (!task.isCompleted && onEdit) {
+      setIsEditing(true);
+      setEditText(task.taskText);
+    }
+  };
+
+  // 편집 저장
+  const handleSave = () => {
+    const trimmedText = editText.trim();
+    if (trimmedText && trimmedText !== task.taskText) {
+      onEdit?.(task.taskId, trimmedText);
+    }
+    setIsEditing(false);
+  };
+
+  // 편집 취소
+  const handleCancel = () => {
+    setEditText(task.taskText);
+    setIsEditing(false);
+  };
+
+  // Enter 키로 저장, Esc 키로 취소
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleSave();
+    } else if (e.key === 'Escape') {
+      handleCancel();
+    }
+  };
+
+  // 편집 모드 진입 시 input에 포커스
+  useEffect(() => {
+    if (isEditing && inputRef.current) {
+      inputRef.current.focus();
+      inputRef.current.select();
+    }
+  }, [isEditing]);
 
   return (
     <div
@@ -62,20 +108,37 @@ export default function TodoItem({ task, onToggle, onDelete }: TodoItemProps) {
         </div>
       </label>
 
-      {/* 할 일 텍스트 */}
+      {/* 할 일 텍스트 또는 편집 입력 */}
       <div className="flex-1 min-w-0">
-        <p
-          className={`
-            text-kid-base font-medium transition-all duration-300
-            ${
-              task.isCompleted
-                ? 'text-gray-500 line-through'
-                : 'text-gray-800'
-            }
-          `}
-        >
-          {task.taskText}
-        </p>
+        {isEditing ? (
+          <div className="flex items-center gap-2">
+            <input
+              ref={inputRef}
+              type="text"
+              value={editText}
+              onChange={(e) => setEditText(e.target.value)}
+              onKeyDown={handleKeyDown}
+              onBlur={handleSave}
+              maxLength={50}
+              className="flex-1 px-3 py-1 rounded-lg border-2 border-primary text-kid-base focus:outline-none"
+            />
+          </div>
+        ) : (
+          <p
+            onClick={handleTextClick}
+            className={`
+              text-kid-base font-medium transition-all duration-300
+              ${
+                task.isCompleted
+                  ? 'text-gray-500 line-through'
+                  : 'text-gray-800 cursor-pointer hover:text-primary'
+              }
+              ${onEdit && !task.isCompleted ? 'hover:underline' : ''}
+            `}
+          >
+            {task.taskText}
+          </p>
+        )}
       </div>
 
       {/* 완료 시 이모지 표시 */}
