@@ -34,6 +34,19 @@ export function getTodayTasks(): Task[] {
 }
 
 /**
+ * 특정 날짜의 할 일 목록을 가져옵니다.
+ * @param dateString - YYYY-MM-DD 형식의 날짜 문자열
+ */
+export function getTasksByDate(dateString: string): Task[] {
+  const allTasks = getAllTasks();
+
+  return allTasks.filter((task) => {
+    const taskDate = task.createdDate.split('T')[0];
+    return taskDate === dateString;
+  });
+}
+
+/**
  * 특정 ID의 할 일을 가져옵니다.
  */
 export function getTaskById(taskId: string): Task | undefined {
@@ -133,6 +146,23 @@ export function getTodayCompletedCount(): number {
  */
 export function getTodayTaskCount(): number {
   return getTodayTasks().length;
+}
+
+/**
+ * 특정 날짜의 완료된 할 일 개수를 가져옵니다.
+ * @param dateString - YYYY-MM-DD 형식의 날짜 문자열
+ */
+export function getCompletedCountByDate(dateString: string): number {
+  const dateTasks = getTasksByDate(dateString);
+  return dateTasks.filter((task) => task.isCompleted).length;
+}
+
+/**
+ * 특정 날짜의 전체 할 일 개수를 가져옵니다.
+ * @param dateString - YYYY-MM-DD 형식의 날짜 문자열
+ */
+export function getTaskCountByDate(dateString: string): number {
+  return getTasksByDate(dateString).length;
 }
 
 /**

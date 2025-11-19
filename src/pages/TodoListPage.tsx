@@ -8,10 +8,13 @@ import { Task } from '../types/task';
 import { UserSticker } from '../types/sticker';
 import {
   getTodayTasks,
+  getTasksByDate,
   toggleTaskCompletion,
   deleteTask,
   getTodayCompletedCount,
   getTodayTaskCount,
+  getCompletedCountByDate,
+  getTaskCountByDate,
   createTask,
 } from '../services/taskService';
 import { getCurrentUser } from '../services/userService';
@@ -19,27 +22,32 @@ import { awardRandomStickerToUser, getStickerById } from '../services/stickerSer
 import ProgressBar from '../components/ProgressBar';
 import TodoList from '../components/TodoList';
 import TodoInput from '../components/TodoInput';
+import DateSelector from '../components/DateSelector';
 import StickerRewardModal from '../components/StickerRewardModal';
 
 export default function TodoListPage() {
+  // 오늘 날짜 (YYYY-MM-DD 형식)
+  const today = new Date().toISOString().split('T')[0];
+
+  const [selectedDate, setSelectedDate] = useState<string>(today);
   const [tasks, setTasks] = useState<Task[]>([]);
   const [completedCount, setCompletedCount] = useState(0);
   const [totalCount, setTotalCount] = useState(0);
   const [rewardSticker, setRewardSticker] = useState<UserSticker | null>(null);
   const [isRewardModalOpen, setIsRewardModalOpen] = useState(false);
 
-  // 할 일 목록 로드
+  // 할 일 목록 로드 (선택된 날짜 기준)
   const loadTasks = () => {
-    const todayTasks = getTodayTasks();
-    setTasks(todayTasks);
-    setCompletedCount(getTodayCompletedCount());
-    setTotalCount(getTodayTaskCount());
+    const dateTasks = getTasksByDate(selectedDate);
+    setTasks(dateTasks);
+    setCompletedCount(getCompletedCountByDate(selectedDate));
+    setTotalCount(getTaskCountByDate(selectedDate));
   };
 
-  // 컴포넌트 마운트 시 할 일 목록 로드
+  // 컴포넌트 마운트 시 또는 날짜 변경 시 할 일 목록 로드
   useEffect(() => {
     loadTasks();
-  }, []);
+  }, [selectedDate]);
 
   // 할 일 완료/미완료 토글
   const handleToggle = (taskId: string) => {
@@ -95,8 +103,14 @@ export default function TodoListPage() {
       return;
     }
 
-    createTask(user.userId, { taskText });
+    // 선택된 날짜에 할 일 추가
+    createTask(user.userId, { taskText, createdDate: selectedDate + 'T00:00:00.000Z' });
     loadTasks();
+  };
+
+  // 날짜 변경 핸들러
+  const handleDateChange = (date: string) => {
+    setSelectedDate(date);
   };
 
   // 보상 모달 닫기
@@ -120,6 +134,9 @@ export default function TodoListPage() {
 
         {/* 카드 컨테이너 */}
         <div className="card">
+          {/* 날짜 선택 */}
+          <DateSelector selectedDate={selectedDate} onDateChange={handleDateChange} />
+
           {/* 할 일 추가 입력 */}
           <TodoInput onAdd={handleAdd} maxLength={50} />
 
